@@ -1,0 +1,49 @@
+{
+  "episode": "00574",
+  "title": "00574｜整理版逐字稿",
+  "segments_per_paragraph": 8,
+  "filler_only": ["嗯", "呃", "啊", "哦", "好", "對", "對啊", "對呀"],
+  "headings": [
+    { "segment_id": 0, "markdown": "## 課前補充：子女教育與父母責任" },
+    { "segment_id": 104, "markdown": "## James 老師主講\n\n### 本集編號與投資提醒" },
+    { "segment_id": 136, "markdown": "### CLEC 講義與公開資料" },
+    { "segment_id": 175, "markdown": "### Clubhouse、X 平台與防詐提醒" },
+    { "segment_id": 212, "markdown": "### CLEC 網站與學員整理資源" },
+    { "segment_id": 312, "markdown": "### 為什麼消費能帶動經濟" },
+    { "segment_id": 395, "markdown": "### 長期投資與短線操作" },
+    { "segment_id": 420, "markdown": "### 市場跌八成時，還能不能正常生活" },
+    { "segment_id": 463, "markdown": "### 退休、家庭與金錢買不到的關係" },
+    { "segment_id": 556, "markdown": "## 學員分享與問答\n\n**主持人 Kate：** 接下來開放學員上台分享與提問。" },
+    { "segment_id": 570, "markdown": "### 學員 1：接觸 CLEC、子女教育與母親的資產安排" },
+    { "segment_id": 906, "markdown": "### 學員 2：信貸、槓桿與現金流" },
+    { "segment_id": 1243, "markdown": "### 學員 3：留學經驗、家庭關係與人生選擇" },
+    { "segment_id": 1518, "markdown": "### 學員 4：投資安排、工作與管理方式" },
+    { "segment_id": 2030, "markdown": "### 學員 5：定期投入、資產配置與市場雜訊" },
+    { "segment_id": 2287, "markdown": "### 學員 6：為什麼好方法仍然很難被相信" },
+    { "segment_id": 3167, "markdown": "### 學員 7：房地產轉向指數投資、QLD 與現金配置" },
+    { "segment_id": 3495, "markdown": "### 學員 8：子女大學費用與學生貸款" },
+    { "segment_id": 3832, "markdown": "### 學員 9：Roth IRA、TQQQ 與轉換安排" },
+    { "segment_id": 3879, "markdown": "### 學員 10：父母、伴侶、健康與職場關係" },
+    { "segment_id": 4353, "markdown": "### 學員 11：聆聽、恐懼、死亡與放下執著" }
+  ],
+  "replacements": [
+    { "pattern": "Cloudhouse", "flags": "gi", "replacement": "Clubhouse" },
+    { "pattern": "納子一百|那指一百|納指一百|納斯達克一百", "flags": "g", "replacement": "納斯達克 100（QQQ）" },
+    { "pattern": "\\b(?:COEC|COCC|CREC|CRC)\\b", "flags": "g", "replacement": "CLEC" },
+    { "pattern": "\\b(?:CLC168|CREC168)\\b", "flags": "g", "replacement": "CLEC168" },
+    { "pattern": "\\bPCROW\\b", "flags": "g", "replacement": "pCloud" },
+    { "pattern": "\\bTed\\b", "flags": "gi", "replacement": "Kate" },
+    { "pattern": "\\bYuki\\b", "flags": "gi", "replacement": "學員 1" },
+    { "pattern": "\\bHen\\b", "flags": "gi", "replacement": "學員 2" },
+    { "pattern": "\\b(?:Tyler|Brian)\\b", "flags": "gi", "replacement": "學員 3" },
+    { "pattern": "\\bMars\\b|阿甘", "flags": "gi", "replacement": "學員 4" },
+    { "pattern": "\\bConan\\b", "flags": "gi", "replacement": "學員 5" },
+    { "pattern": "\\b(?:YJ|YG)\\b", "flags": "gi", "replacement": "學員 6" },
+    { "pattern": "\\bSteven\\b", "flags": "gi", "replacement": "學員 7" },
+    { "pattern": "\\bDieter\\b", "flags": "gi", "replacement": "學員 8" },
+    { "pattern": "\\b(?:Washen|Washington)\\b", "flags": "gi", "replacement": "學員 9" },
+    { "pattern": "\\b(?:Demo|Demon)\\b", "flags": "gi", "replacement": "學員 11" }
+    ,{ "pattern": "然後還有Greak Kate", "flags": "gi", "replacement": "也謝謝主持人 Kate" }
+    ,{ "pattern": "這個長安還有學員 9", "flags": "g", "replacement": "另外兩位學員" }
+  ]
+}
