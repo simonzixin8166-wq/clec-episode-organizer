@@ -1,0 +1,4 @@
+interface:
+  display_name: "CLEC 節目整理"
+  short_description: "將 CLEC 單集整理成可核對的繁體中文 Obsidian 知識頁"
+  default_prompt: "Use $clec-episode-organizer to organize one CLEC episode into a source-traceable Traditional Chinese Obsidian page."
