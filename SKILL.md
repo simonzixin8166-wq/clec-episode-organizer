@@ -1,23 +1,59 @@
 ---
 name: clec-episode-organizer
-description: Organize one numbered CLEC episode into a traceable Traditional Chinese Obsidian knowledge page, combining verified X, pCloud, Google Drive, Bilibili, Odysee, and RSS/Podcast sources with layered summaries and preserved transcripts. Use when the user asks to整理、合併、補來源、建立逐字稿閱讀版、匿名學員問答，或更新 CLEC 單集知識頁。
+description: CLEC collection and episode organization workflow. Use when Codex must inventory a user-specified date range, group X, pCloud, Google Drive, Bilibili, Odysee, and RSS/Podcast sources by five-digit CLEC episode number, create traceable Traditional Chinese Obsidian pages, obtain CC-first transcripts with targeted audio clarification, build layered summaries, anonymize students, or update CLEC episode knowledge pages.
 ---
 
 # CLEC Episode Organizer
 
-把一個 CLEC 編號當成單一內容主體。平台只是來源、附件或備份，不要各自建立重複文章。
+把一個 CLEC 編號當成單一內容主體。指定期間可以包含多集，但平台只是來源、附件或備份；每個五位數編號仍只建立一篇單集主頁。
 
 ## 必守原則
 
-1. 一次只處理使用者指定的單集；不要掃描整個專案。
+1. 只處理使用者指定的單集或日期區間；先建立期間清單，再逐集處理，不得擴大掃描整個專案。
 2. 以 `canonical_id: clec-<五位編號>` 合併資料，不能只憑發布日期或內容相似度判斷。
 3. 找到但無法證明屬於該集的資料，標示「尚未確認」並詢問使用者，不要硬合併。
 4. 保留原始來源、原始轉錄、繁體轉錄、整理版、摘要與人工修訂的分層。
 5. 預設 `publish_to_website: false`。除非使用者明確要求，不同步網站、CMS 或 Supabase。
 6. 寫入使用者實際使用的 Obsidian Vault。若路徑不明，先從目前工作區或使用者提供的資料確認，不要假設固定的家目錄。
 7. 使用繁體中文與台灣用語。語氣自然、清楚，不寫成嚴肅報告。
+8. 校對前先找目標 Vault 內的 `CLEC｜常用詞與逐字稿校對資料庫.md`；若不存在，再使用 `references/clec-transcription-lexicon.md` 的基本詞表。詞庫是查證工具，不是猜詞工具。
 
 ## 工作流程
+
+### A. 指定期間盤點
+
+使用者提供起訖日期時：
+
+1. 只抓取該期間內可見的 CLEC 來源項目，記錄發布日期、五位數編號、標題、平台及 URL。
+2. 只有明確五位數編號才能建立 `canonical_id: clec-<五位編號>`；短篇後綴如 `A／B／C／D` 保留在附件或短篇關係中，不冒充另一集長片。
+3. 依五位數編號分組，同一集的 X、講義、影片備份與 Podcast 合併到同一份來源清單。
+4. 沒有五位數編號、編號衝突或只靠內容相似的項目放入「尚未確認」，不得硬合併。
+5. 先回報期間清單與缺口；使用者要求繼續整理時，再逐集套用以下流程。
+
+### 0. 統一取得逐字稿來源
+
+所有平台字幕、Podcast transcript、音訊下載與語音辨識，統一交給 `media-transcript`。本技能只負責 CLEC 的來源判定、繁體轉換、詞彙校對、內容分層、匿名化與 Obsidian 整併，不另建下載或 ASR 流程。
+
+執行順序：
+
+1. 以 `media-transcript --engine auto` 探測來源。
+2. 有人工字幕時優先使用人工字幕；其次使用平台自動 CC 或 Podcasting 2.0 transcript。
+3. `metadata.json` 若為 `transcript_method: source-subtitles`，以 CC 為原始文字層，不因少數誤辨而重跑整集 Whisper。
+4. 沒有來源字幕時，由 `media-transcript` 在 Apple Silicon 預設使用本機 MLX Whisper。
+5. 只有使用者明確要求雲端快速轉錄、diarization 或已知講者比對時，才使用 `media-transcript` 內的 OpenAI 轉錄功能。
+6. 原始字幕／ASR、繁體轉換與整理版必須分層保存，不得互相覆寫。
+
+字幕品質至少檢查影片開頭、中段、結尾、最後 30 秒、字幕覆蓋時間，以及 CLEC 詞庫中的核心名稱。通過才進入整理階段。
+
+#### CC 不清楚時的局部音訊補正
+
+CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只針對這些位置：
+
+1. 從同一集已確認音訊或影片截取該字幕前後各 10～20 秒。
+2. 對短片段執行本機轉錄，必要時使用同集講義與詞庫比對。
+3. CC、局部 ASR 與音訊一致時，才在繁體稿或整理版修正，並記錄證據時間點。
+4. 仍不一致就保留 `〔需核對〕`，不得猜詞。
+5. 只有 CC 大量缺漏、時間軸失效或整體不可讀，才允許重跑整集 ASR。
 
 ### 1. 盤點必要檔案
 
@@ -45,17 +81,75 @@ description: Organize one numbered CLEC episode into a traceable Traditional Chi
 
 使用 `assets/episode-page-template.md`。頁面固定採三層閱讀：
 
-1. **30 秒看懂**：一句話重點、3～5 個重點、觀看與閱讀入口。
-2. **3～5 分鐘理解**：依內容寫背景、主要論證、策略或可思考的問題，不硬套格式。
-3. **深入閱讀**：術語解釋、來源狀態、完整整理版逐字稿、原始稿、證據限制與審核進度。
+1. **30 秒內看懂**：一句話重點、3～5 個重點、本集資料入口。
+2. **3–5 分鐘理解主要論證**：依內容寫背景、主要論證與策略，並提供可以帶走的問題或行動。
+3. **願意深讀的人：證據、限制與延伸資料**：說明範圍、術語、來源狀態、證據限制、逐字稿與審核進度。
 
 標題與摘要以國中閱讀程度撰寫。一般正文可使用高中程度概念，但要用日常中文。深度內容可以更進階，所有術語第一次出現時都要解釋。
 
-「一句話重點」使用 Obsidian callout：
+#### 固定章節與標題層級
+
+所有單集主頁必須使用以下標題，文字、標點與層級不可自行變形：
 
 ```markdown
-> [!summary] 一句話重點
-> 一至兩句直接說清楚本集主旨。
+> [!abstract] 30 秒內看懂
+> **一句話重點：……**
+
+**本集資料：** ……
+
+## 3–5 分鐘理解主要論證
+### 可以帶走的問題或行動
+
+## 願意深讀的人：證據、限制與延伸資料
+### 這集在講什麼，也沒有講什麼
+### 名詞說明
+### 來源對照
+### 證據限制
+### 逐字稿
+#### 整理版逐字稿
+#### 原始繁體稿
+### 整理進度
+```
+
+- 不使用 `30 秒看懂`、`3～5 分鐘理解這一集`、`深入閱讀`、`來源與存檔狀態` 等舊標題。
+- `3–5 分鐘理解主要論證` 內可以依單集內容新增背景、核心、策略、延伸或問答等 H3；不要為了格式統一而改寫各集觀點。
+- 「可以帶走的問題或行動」固定放在主要論證區，實際內容可以是問題、計算、行動或自我檢查。
+- 深讀區的固定 H3 必須全部保留；沒有資料時明寫「尚未確認」，不得省略章節。
+- 整理版逐字稿使用 embed；原始繁體稿使用連結，兩者都放在 `### 逐字稿` 下。
+
+#### 標題、檔名與連結格式
+
+以使用者確認過的 00574 頁面為唯一格式基準：
+
+```text
+00574｜消費才是經濟之母，有錢人消費是道德.md
+```
+
+必須遵守以下規則：
+
+1. 主頁檔名固定為 `<五位編號>｜<標題>.md`。
+2. 編號與標題之間只使用一個全形直線 `｜`（U+FF5C），前後不加空格。
+3. YAML `title`、頁面第一層標題 `#` 與檔名去掉 `.md` 後的文字必須完全一致。
+4. Obsidian 首頁、索引與相關頁面的 Wiki link，使用同一個完整頁名，例如：
+
+   ```markdown
+   [[00574｜消費才是經濟之母，有錢人消費是道德]]
+   ```
+
+5. 標題文字以使用者已確認的主頁為最高優先。若尚未有人工作業，才從 X 原始貼文或講義取得標題。
+6. 從來源建立標題時，移除不屬於主標題的外層包裝，例如 `〖〗`、重複編號、發布日期、平台名稱與「CLEC 投資理財頻道」等尾綴；不要自行改寫主標題的意思。
+7. 來源之間若有標點、用字或副標題差異，先標示「尚未確認」並詢問使用者。不要擅自選一個版本，也不要為了檔名好看而縮寫。
+8. 其他名稱只能放入 YAML `aliases`，不能取代主檔名。Aliases 不要求加入 `｜`，但不得產生另一篇重複主頁。
+9. 不得使用半形管線、破折號或空格替代既定分隔符，例如 `00574 | 標題`、`00574 - 標題`、`00574｜ 標題` 都不合格。
+10. 逐字稿等附屬檔沿用相同分隔方式，例如 `00574｜整理版逐字稿.md`；它們不是另一篇節目主頁。
+
+若既有頁面的檔名、YAML `title` 或 H1 不一致，先確認哪一個是使用者核定版本，再做重新命名與連結更新；不可只改其中一處，留下失效連結。
+
+「一句話重點」放在「30 秒內看懂」的 Obsidian callout：
+
+```markdown
+> [!abstract] 30 秒內看懂
+> **一句話重點：一至兩句直接說清楚本集主旨。**
 ```
 
 摘要先交代這集在回答什麼問題，再依內容選用段落或列點。避免抽象句、罐頭結論與過度免責語氣；不能替 James 老師發明立場或故事。
@@ -93,6 +187,25 @@ description: Organize one numbered CLEC episode into a traceable Traditional Chi
 - 主持人只在來源或使用者確認後保留姓名；不要沿用上一集主持人。
 - 沒有 diarization 時，以「一位學員一個對話區塊」呈現，並註明區塊包含該學員與 James 老師的往返；不要硬猜每一句講者。
 
+#### 長片角色判斷
+
+- CLEC 超過三小時的長片，預設把 James 老師列為主講人候選；主持人通常是 Kate，有時是 Dona。
+- 這條規則只用來安排校對順序，不能單獨當成姓名已確認的證據。
+- 優先從主持人的自我介紹、James 交棒時的稱呼、節目說明或使用者確認判斷 Kate／Dona。
+- 能確認角色、不能確認姓名時，只標「主持人」，並設 `host_verification: needs-review`。
+- 三小時以下的內容不套用這條長片規則。已知例外以該集來源或使用者確認為準。
+
+#### 常用詞與誤辨詞
+
+每筆詞彙至少記錄：標準寫法、常見誤辨、類別、可信度、適用範圍、證據來源與是否可自動修正。
+
+- `user-confirmed` 或 `verified`：可在適用範圍內修正。
+- `context-candidate`：只能拿來搜尋、比對投影片或重聽音訊，原文仍保留並加 `〔需核對〕`。
+- `ambiguous`：不得自動替換。
+- 先比對完整詞組，再比對短詞，避免在單字內誤換，例如不能因為包含 `Odysee` 的相似字串就破壞 `Podcast`。
+- 所有修正只套用在整理版；raw、JSON、SRT、原始繁體稿不得改動。
+- 新增詞彙時要寫明來自哪一集、哪一份講義或哪次使用者確認，不能只寫「AI 判斷」。
+
 需要批次產生閱讀版時，先人工建立該集的分段與替換設定，再執行 `scripts/build_readable_transcript.mjs`。腳本不得自行判斷學員身分。
 
 ### 6. 嵌入同一頁
@@ -116,6 +229,8 @@ description: Organize one numbered CLEC episode into a traceable Traditional Chi
 至少檢查：
 
 - canonical ID、標題、日期、語言及 `publish_to_website`。
+- 主頁檔名符合 `<五位編號>｜<標題>.md`，使用全形 `｜` 且前後沒有空格。
+- YAML `title`、H1 與檔名完全一致；索引 Wiki link 指向同一完整頁名。
 - 每個已確認來源的 URL 與角色。
 - 原始繁體逐字稿未被修改。
 - 整理版有課前補充／主講／問答的正確分界。
@@ -131,3 +246,4 @@ description: Organize one numbered CLEC episode into a traceable Traditional Chi
 - 處理 00574 或需要具體範例時，讀取 `references/00574-verified-example.md`。
 - 建立主頁時使用 `assets/episode-page-template.md`。
 - 從 Whisper JSON 產生段落化閱讀版時，讀取並使用 `scripts/build_readable_transcript.mjs`；00574 可直接參考 `references/00574-transcript-config.json`。
+- 校對專有名詞與口音誤辨時，讀取 `references/clec-transcription-lexicon.md`，並以目標 Vault 內的最新詞庫為優先。
