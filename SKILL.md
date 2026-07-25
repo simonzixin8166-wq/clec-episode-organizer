@@ -1,6 +1,6 @@
 ---
 name: clec-episode-organizer
-description: CLEC collection and episode organization workflow. Use when Codex must inventory a user-specified date range, group X, pCloud, Google Drive, Bilibili, Odysee, and RSS/Podcast sources by five-digit CLEC episode number, create traceable Traditional Chinese Obsidian pages, obtain CC-first transcripts with targeted audio clarification, build layered summaries, anonymize students, or update CLEC episode knowledge pages.
+description: CLEC collection, transcript cleanup, and episode organization workflow. Use when Codex must inventory a user-specified date range, group X, pCloud, Google Drive, Bilibili, Odysee, and RSS/Podcast sources by five-digit CLEC episode number, create traceable Traditional Chinese Obsidian pages, obtain CC-first transcripts with targeted audio clarification, apply a user-confirmed CLEC lexicon to one or more readable transcripts, build layered summaries, anonymize students, or update CLEC episode knowledge pages.
 ---
 
 # CLEC Episode Organizer
@@ -15,7 +15,7 @@ description: CLEC collection and episode organization workflow. Use when Codex m
 4. 保留原始來源、原始轉錄、繁體轉錄、整理版、摘要與人工修訂的分層。
 5. 預設 `publish_to_website: false`。除非使用者明確要求，不同步網站、CMS 或 Supabase。
 6. 寫入使用者實際使用的 Obsidian Vault。若路徑不明，先從目前工作區或使用者提供的資料確認，不要假設固定的家目錄。
-7. 使用繁體中文與台灣用語。語氣自然、清楚，不寫成嚴肅報告。
+7. 使用繁體中文與台灣用語。一般正文優先使用台灣常見的「台」，例如「台灣、平台、台幣、上台」；只有正式名稱明定使用「臺」時才保留。語氣自然、清楚，不寫成嚴肅報告。
 8. 校對前先找目標 Vault 內的 `CLEC｜常用詞與逐字稿校對資料庫.md`；若不存在，再使用 `references/clec-transcription-lexicon.md` 的基本詞表。詞庫是查證工具，不是猜詞工具。
 
 ## 工作流程
@@ -43,7 +43,19 @@ description: CLEC collection and episode organization workflow. Use when Codex m
 5. 只有使用者明確要求雲端快速轉錄、diarization 或已知講者比對時，才使用 `media-transcript` 內的 OpenAI 轉錄功能。
 6. 原始字幕／ASR、繁體轉換與整理版必須分層保存，不得互相覆寫。
 
-字幕品質至少檢查影片開頭、中段、結尾、最後 30 秒、字幕覆蓋時間，以及 CLEC 詞庫中的核心名稱。通過才進入整理階段。
+評估方法快慢時，分開記錄「取得第一份文字所需時間」與「產出可人工審閱初稿所需時間」。平台 CC 通常最快取得文字，但若語意破碎、標點不足或誤辨密集，總整理時間可能比音檔 ASR 更長；工作流選擇應以後者為準。
+
+字幕品質必須同時檢查覆蓋率與語意可讀性。至少抽查影片開頭、主講中段、主持人交接、兩段學員問答、最後兩個學員區塊、節目結尾與最後 30 秒，並檢查 CLEC 詞庫中的核心名稱。不能因為時間軸覆蓋完整，就把語意破碎的字幕判定為可用。
+
+每個抽樣區塊至少連續讀 5～10 句。若出現以下任一情況，該區塊判為不合格：
+
+- 多數句子無法辨認主詞、動作或問題與回答的關係。
+- 連續出現無法由上下文修復的人名、數字、ETF 代號或混雜詞。
+- 必須重聽或改寫整段，才能知道原意，而不是只補正少數詞。
+
+若不合格只集中在少數時間點，採局部音訊補正；若主講與問答多個抽樣區塊都不合格，或後半段連續大段不可讀，判定 CC 整體不可用，保留 CC 作證據後改跑全長 ASR。
+
+詳細決策表、來源分層與驗收清單見 `references/transcript-quality-gates.md`。
 
 #### CC 不清楚時的局部音訊補正
 
@@ -103,19 +115,18 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 ## 願意深讀的人：證據、限制與延伸資料
 ### 這集在講什麼，也沒有講什麼
 ### 名詞說明
-### 來源對照
-### 證據限制
 ### 逐字稿
 #### 整理版逐字稿
-#### 原始繁體稿
-### 整理進度
 ```
 
 - 不使用 `30 秒看懂`、`3～5 分鐘理解這一集`、`深入閱讀`、`來源與存檔狀態` 等舊標題。
 - `3–5 分鐘理解主要論證` 內可以依單集內容新增背景、核心、策略、延伸或問答等 H3；不要為了格式統一而改寫各集觀點。
 - 「可以帶走的問題或行動」固定放在主要論證區，實際內容可以是問題、計算、行動或自我檢查。
 - 深讀區的固定 H3 必須全部保留；沒有資料時明寫「尚未確認」，不得省略章節。
-- 整理版逐字稿使用 embed；原始繁體稿使用連結，兩者都放在 `### 逐字稿` 下。
+- 「來源對照」、來源狀態表、「證據限制」與查證備註不得出現在讀者主頁；它們只保留在內部來源紀錄或後端工作檔。
+- 例外：若存在相同五位數編號對應不同日期或不同內容、短篇後綴可能與正式節目混淆，必須在主頁保留簡潔的 `> [!caution] 編號重複` 警示，清楚說明本頁涵蓋的日期、標題與不合併範圍。這是讀者辨識資訊，不視為技術說明。
+- 節目主頁的 `### 逐字稿` 只顯示整理版逐字稿，並使用 embed。原始字幕、原始 ASR、繁體原稿、模型名稱、segment 數量、轉錄指令、抽查流程與其他技術優化說明不得放在讀者主頁；這些證據仍保存在後端產物或附屬檔案中。
+- 「整理進度」、待辦清單與內部審核流程不得出現在節目主頁正文；需要管理的狀態只保留在 YAML 或後端工作檔。
 
 #### 標題、檔名與連結格式
 
@@ -178,6 +189,14 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 
 不確定的辨識詞保留並標示 `〔需核對〕`，不要猜。
 
+標點與可讀性規則：
+
+- 使用逗號、頓號、句號、問號與冒號呈現語意關係，不要只靠換行。
+- 以完整語意單位分段；預設可用約 120～160 個中文字作為段落上限，再依問答轉折提前斷段。
+- 只刪除獨立且不影響語意的「呃、嗯、那個」等語贅詞；不得以全域取代刪除可能具有承接、否定或語氣功能的詞。
+- 疑問句應補問號；說話者切換、提問與回答不可混成同一段。
+- 無法由音訊或可靠字幕確認的專名、數字與關鍵詞，不得為了文句通順自行補寫。
+
 ### 5. 匿名學員
 
 依第一次上台順序標為「學員 1、學員 2……」。同一輪追問沿用相同編號。
@@ -186,6 +205,8 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 - James 老師保留姓名。
 - 主持人只在來源或使用者確認後保留姓名；不要沿用上一集主持人。
 - 沒有 diarization 時，以「一位學員一個對話區塊」呈現，並註明區塊包含該學員與 James 老師的往返；不要硬猜每一句講者。
+- 匿名化前先建立該集的「原身分字串 → 學員編號」對照，只替換來源中已確認的完整字串。
+- 不得用包含多個常見英文名、短詞或疑似誤辨詞的寬鬆正則掃描整篇；無法確認是姓名時保留原文並標 `〔需核對〕`。
 
 #### 長片角色判斷
 
@@ -206,7 +227,20 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 - 所有修正只套用在整理版；raw、JSON、SRT、原始繁體稿不得改動。
 - 新增詞彙時要寫明來自哪一集、哪一份講義或哪次使用者確認，不能只寫「AI 判斷」。
 
-需要批次產生閱讀版時，先人工建立該集的分段與替換設定，再執行 `scripts/build_readable_transcript.mjs`。腳本不得自行判斷學員身分。
+#### 批次校對現有整理稿
+
+使用者指定整個逐字稿資料夾時，可以一次校對多集，但仍須遵守指定範圍，不得延伸到其他 Vault 或專案。
+
+1. 先列出範圍內所有檔案，將 `整理版逐字稿.md`、明確標成閱讀版的 Markdown 與 raw／SRT／VTT／TXT 分開。
+2. 批次修改前，先為所有非 Markdown 原始檔建立 SHA-256 清單；完成後重新計算並逐行比對。
+3. 只把 `user-confirmed` 或 `verified` 詞形套用到整理版 Markdown。`context-candidate` 與 `ambiguous` 不得批次替換。
+4. 依「完整長詞 → 短詞」排序。`QQ`、`QQM`、`OD`、`ODC` 等短代號必須使用完整詞界，不能改壞 `QQQ`、`QQQM`、英文單字或其他 ETF 代號。
+5. 中英文混合替換必須使用 UTF-8 安全的文字處理方式。若出現 `ï¼`、`æ` 等亂碼，立即停止、修復並重新掃描，不得交付。
+6. 需要依句意轉換的詞不能只做字面替換。例如 `amburance` 在「馬上進……」的句型中可整理成「馬上進急診」，其他語境則保留 `ambulance` 或中文解釋。
+7. 完成後掃描所有已確認誤辨詞、亂碼片段與短代號殘留；再抽查每個有修改的檔案至少一個上下文。
+8. 回報實際修改的 Markdown、未命中的詞、仍待核對的詞，以及原始檔雜湊是否完全一致。
+
+需要批次產生閱讀版時，先人工建立該集的分段、原稿底本、匿名對照與替換設定，再執行 `scripts/build_readable_transcript.py`。腳本不得自行判斷學員身分。`build_readable_transcript.mjs` 只保留舊設定相容性，新工作不再使用。
 
 ### 6. 嵌入同一頁
 
@@ -214,12 +248,6 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 
 ```markdown
 ![[00574｜整理版逐字稿]]
-```
-
-並保留原始繁體稿連結：
-
-```markdown
-[[00574｜繁體中文逐字稿.txt]]
 ```
 
 逐字稿可以拆成實體檔以便維護，但 Obsidian 閱讀頁必須透過 embed 呈現在同一頁。
@@ -236,7 +264,12 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 - 整理版有課前補充／主講／問答的正確分界。
 - 學員編號連續，已知帳號未殘留。
 - 使用者確認過的名詞已修正；未知名詞仍有提醒。
-- 主頁可連到並嵌入整理版，也能回到原始稿。
+- 批次校對時，已確認誤辨詞與 UTF-8 亂碼掃描結果為零；所有原始檔的修改前後 SHA-256 清單完全一致。
+- 主頁只嵌入整理版，不顯示原始稿或轉錄技術說明。
+- 整理版需另行抽查最後兩個學員區塊與節目結尾，不能只驗證檔案存在、段落數或時間覆蓋。
+- 產生整理版時，若同一字或短詞異常連續重複八次以上，視為疑似模型幻覺並停止輸出；回到時間碼比對音訊，不能自動縮成一句看似合理的文字。
+- 比對節目最後一句、音訊實際結尾與最後 30 秒；若 ASR 在確認收尾後仍生成沒有音訊依據的文字，只能留在原始輸出供追查，不得進入繁體原稿或整理版，並記錄排除的時間區段。
+- 該集已確認的學員原身分字串應列入 `blocked_identity_terms`；產生後若仍有命中，驗證必須失敗。
 - 不把投資觀點寫成獲利保證或個人建議。
 
 完成後只回報實際建立或更新的檔案、已確認來源、待確認來源與發布狀態。
@@ -245,5 +278,6 @@ CC 中不清楚的詞先標 `〔需核對〕`，並保留對應時間碼。只�
 
 - 處理 00574 或需要具體範例時，讀取 `references/00574-verified-example.md`。
 - 建立主頁時使用 `assets/episode-page-template.md`。
-- 從 Whisper JSON 產生段落化閱讀版時，讀取並使用 `scripts/build_readable_transcript.mjs`；00574 可直接參考 `references/00574-transcript-config.json`。
+- 從時間段 JSON 產生段落化閱讀版時，讀取並使用 `scripts/build_readable_transcript.py`；設定檔必須標明 `source_method` 與 `source_description`。00574 可參考 `references/00574-transcript-config.json`，但不得直接沿用其學員身分或替換詞。
 - 校對專有名詞與口音誤辨時，讀取 `references/clec-transcription-lexicon.md`，並以目標 Vault 內的最新詞庫為優先。
+- 判斷 CC、局部 ASR 或完整 ASR，及驗收衍生稿時，讀取 `references/transcript-quality-gates.md`。
