@@ -1,8 +1,10 @@
 # CLEC Episode Organizer
+
 CLEC 投資理財頻道由旅美退休華人 James Chen 老師創辦，以非營利方式分享長期投資、資產配置、退休規劃與人生經驗。
+
 這個 Skill 把 CLEC 相關節目從多平台來源統整成可查證、可閱讀、可人工審核的繁體中文 Obsidian 知識頁。
 
-以 CLEC 五位數編號作為單集的唯一識別，同一集即使同時出現在 X、pCloud、Google Drive、Bilibili、Odysee 與 Podcast，也只建立一篇節目主頁。
+這個 skill 以 CLEC 五位數編號作為單集的唯一識別，同一集即使同時出現在 X、pCloud、Google Drive、Bilibili、Odysee 與 Podcast，也只建立一篇節目主頁。
 
 ## 它能做什麼
 
@@ -123,6 +125,6 @@ clec-episode-organizer/
 
 ## 版本
 
-目前版本：`v1.3.0`
+目前版本：`v1.3.1`
 
 版本內容請見 [RELEASE_NOTES.md](RELEASE_NOTES.md)。
