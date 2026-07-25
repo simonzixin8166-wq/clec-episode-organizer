@@ -2,7 +2,32 @@
 
 ## Unreleased
 
-- 目前沒有尚未發布的變更。
+目前沒有尚未發布的變更。
+
+## v1.3.0 — 2026-07-25
+
+本版重新整理技能主流程，保留完整的 CLEC 來源、逐字稿與 Obsidian 規則，同時減少重複說明，讓 Codex 更容易依序執行。
+
+### 新增
+
+- 正式整理版逐字稿開頭統一使用「閱讀版仍需人工校對、講者標示方式、專有名詞校正」三個備註。
+- 基本詞庫新增 `support@clec168.com`，並維持 `Claude Tag` 為使用者確認的標準詞。
+- 將必要參考資料整理為按需讀取入口，避免每次載入不相關細節。
+
+### 變更
+
+- `SKILL.md` 改為九步執行流程：範圍、來源、轉錄、主頁、標題、整理版、匿名化、批次校對、驗證。
+- CC、局部 ASR、完整 ASR 的品質細節集中到 `references/transcript-quality-gates.md`。
+- 專有名詞集中到 `references/clec-transcription-lexicon.md`，00574 細節保留在已確認範例。
+- 不再把 `media-transcript --engine auto` 寫成固定介面，改由 `media-transcript` 自動探測來源。
+- Python 整理器作為正式工具；JavaScript 整理器保留舊設定相容性。
+- README 同步更新為 `v1.3.0`。
+
+### 驗證與發布邊界
+
+- 保留原始來源、原始字幕／ASR、繁體原稿、整理版與人工修訂的分層。
+- 預設仍為 `pending-editorial-review` 與 `publish_to_website: false`。
+- GitHub 發布包排除 `scripts/__pycache__/`。
 
 ## v1.2.0 — 2026-07-25
 
