@@ -26,7 +26,7 @@
 
 建議順序：
 
-1. 使用 `media-transcript --engine auto` 探測來源。
+1. 使用 `media-transcript` 探測來源，預設由工具自動選擇可用方式。
 2. 人工字幕優先，其次是平台 CC 或 Podcast transcript。
 3. 少數疑義以同集音訊前後 10～20 秒局部轉錄核對。
 4. 只有字幕大量缺漏、時間軸失效或整體不可讀，才重跑全長 ASR。
@@ -123,6 +123,6 @@ clec-episode-organizer/
 
 ## 版本
 
-目前版本：`v1.2.0`
+目前版本：`v1.3.0`
 
 版本內容請見 [RELEASE_NOTES.md](RELEASE_NOTES.md)。
