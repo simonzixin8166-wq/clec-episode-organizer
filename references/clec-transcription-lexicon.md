@@ -21,6 +21,7 @@
 | Bilibili | bilibili | 平台 | 來源名稱 |
 | Odysee | OD、ODC、POdyseeast、pOdyseeast、Odyssey 等近音 | 平台 | 使用者確認；CLEC Assets 頻道：https://odysee.com/@CLEC_Assets:f?view=home |
 | e-mail | email、Email、E-mail | 通訊方式 | 使用者確認 |
+| support@clec168.com | supportatclece168.com | 聯絡方式 | 使用者確認 |
 | 新人葵花寶典 | 奎花寶典、新人奎花八點、新港人匯化保典 | CLEC 教材 | 使用者確認 |
 | Charles Schwab（嘉信理財） | ChargeSWAP、Charles Drop、Charles Schwab、嘉信理財 | 金融機構 | 使用者確認 |
 | HOA（Homeowner's Association，公寓管理委員會） | HOA、Homeowner's Association、公寓管理委員會、管委會 | 房地產／社區管理 | 使用者確認 |
