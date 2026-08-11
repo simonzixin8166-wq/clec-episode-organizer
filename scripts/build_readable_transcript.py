@@ -82,7 +82,7 @@ title: "{title}"
 type: clec-transcript-readable
 canonical_id: clec-{episode}
 episode: "{episode}"
-language: zh-Hant
+language: zh-Hans
 status: generated-needs-review
 source_segments: {len(segments)}
 speaker_labels: partially-structured
