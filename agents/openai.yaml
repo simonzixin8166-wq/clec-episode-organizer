@@ -1,4 +1,4 @@
 interface:
-  display_name: "CLEC 節目整理"
-  short_description: "整理 CLEC 來源、逐字稿與繁體中文 Obsidian 知識頁"
+  display_name: "CLEC 节目整理"
+  short_description: "整理 CLEC 来源、逐字稿与简体中文 Obsidian 知识页"
   default_prompt: "Use $clec-episode-organizer to organize CLEC sources or safely clean user-specified readable transcripts with the confirmed lexicon."
