@@ -6,7 +6,7 @@ type: clec-episode
 canonical_id: "clec-{{episode}}"
 episode: "{{episode}}"
 author: James Chen
-language: zh-Hant
+language: zh-Hans
 content_date: "{{content_date}}"
 duration: "{{duration}}"
 status: pending-editorial-review
