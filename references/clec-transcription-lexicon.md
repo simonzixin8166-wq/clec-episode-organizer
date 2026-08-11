@@ -1,78 +1,78 @@
-# CLEC 逐字稿基本詞表
+# CLEC 逐字稿基本词表
 
-這是可攜式基本詞表。若目標 Obsidian Vault 已有 `CLEC｜常用詞與逐字稿校對資料庫.md`，以 Vault 內的最新版為準。
+这是可携式基本词表。若目标 Obsidian Vault 已有 `CLEC｜常用词与逐字稿校对数据库.md`，以 Vault 内的最新版为准。
 
 ## 可直接修正
 
-| 標準寫法 | 常見誤辨／寫法 | 類別 | 依據 |
+| 标准写法 | 常见误辨／写法 | 类别 | 依据 |
 |---|---|---|---|
-| James 老師 | James、Jimson 老師 | 人物 | 使用者確認 |
-| Lisa Chu | LISA、Lisa、Lisa Chu | 人物 | 使用者確認；James 在 Charles Schwab 的 Financial Consultant（理財顧問） |
-| Elon Musk（伊隆馬斯克） | 一龍、Elon、Elon Musk、伊隆馬斯克 | 人物 | 使用者確認 |
-| X 平台 | X、X平台、X 平臺、X平臺 | 平台 | 使用者確認；台灣正文使用「平台」 |
-| x.com/CLEC168 | x.com.CLEC168 | 網址 | 使用者確認 |
-| CLEC168 | CLZ 168 | 頻道名稱 | 使用者確認 |
-| CLEC 投資理財 | CFC投資理財 | 頻道名稱 | 使用者確認 |
-| Clubhouse | call house、Call House、cup house、Cup House、Cloudhouse | 平台 | 使用者確認 |
-| LINE 群組 | Nine 群組、Nine群組、LINE群組 | 通訊平台 | 使用者確認 |
-| 小紅書 | 小紅樹 | 平台 | 使用者確認 |
-| 納斯達克 100 | 納子一百、那指一百、納指一百 | 指數 | 使用者確認 |
-| QQQ | QQ、字母近音 | ETF | 使用者確認；只處理完整詞，不得改壞 QQQM 等代號 |
-| QQQM | QQM | ETF | 使用者確認；只處理完整代號 |
-| QLD | QRD | ETF | 使用者確認；只處理完整代號 |
-| QQQI | QQI | ETF | 使用者確認；只處理完整代號，不得改動 QQQ |
-| JEPQ | GEPQ | ETF | 使用者確認；只處理完整代號 |
-| YTD | Year Today、Year To Day | 投資用語 | 使用者確認；指 Year to Date |
-| 513100、513300 | 513100300 | ETF 代號 | 使用者確認；依 00575 上下文拆為兩個代號 |
-| 半導體類股 | 半導體類骨 | 投資用語 | 使用者確認 |
-| 乘豐 | 陳峰 | 專有名詞 | 使用者確認；具體身分依單集上下文判斷 |
-| 美光記憶體 | 記憶體 micron、記憶體 Micron | 半導體公司／記憶體 | 使用者確認；指 Micron Technology |
-| 美光 | micron、Micron | 半導體公司 | 使用者確認；指 Micron Technology，產品語境可寫「美光記憶體」 |
-| 價值十億元的投資講座 | 價值10元，同志講座、價值 10 元，同志講座 | CLEC 用語／活動 | 使用者確認；完整詞組優先 |
-| Kate | Kate、Cat | 主持人 | Cat 只可在主持人前後文成立時修正；00575 由節目稱呼確認 |
-| pCloud | P Cloud、p cloud | 平台 | 來源名稱 |
-| Bilibili | bilibili | 平台 | 來源名稱 |
-| Facebook | 臉書 | 平台 | 使用者確認；指社群平台時修正 |
-| Odysee | OD、ODC、POdyseeast、pOdyseeast、Odyssey 等近音 | 平台 | 使用者確認；CLEC Assets 頻道：https://odysee.com/@CLEC_Assets:f?view=home |
-| e-mail | email、Email、E-mail | 通訊方式 | 使用者確認 |
-| support@clec168.com | supportatclece168.com | 聯絡方式 | 使用者確認 |
-| 新人葵花寶典 | 奎花寶典、新人奎花八點、新港人匯化保典 | CLEC 教材 | 使用者確認 |
-| Charles Schwab（嘉信理財） | ChargeSWAP、Charles Drop、Charge Shop、Charles Schwab、嘉信理財 | 金融機構 | 使用者確認 |
-| HOA（Homeowner's Association，公寓管理委員會） | HOA、Homeowner's Association、公寓管理委員會、管委會 | 房地產／社區管理 | 使用者確認 |
-| Property Tax（房地產稅） | Propery Tax、Property Tax、房產稅、房地產稅 | 房地產／稅務 | 使用者確認 |
-| ambulance（救護車／搭救護車進急診） | amburance、ambulance、進急診 | 醫療 | 使用者確認；依句型選擇名詞或動作說法 |
-| routine check（定期檢查） | routine 的 check、routine的check、routine check | 醫療／日常用語 | 使用者確認 |
-| CT scan（電腦斷層掃描） | CT scan、CTscan、CT 掃描 | 醫療檢查 | 使用者確認 |
-| 君悅五星級飯店 | 軍月五星級飯店 | 飯店／地點 | 使用者確認 |
-| Anthropic | Enthorpic、Enthropic | AI 公司 | 使用者確認 |
-| Claude | Claudi、Cloudy | AI 產品／品牌 | 使用者確認 |
-| Claude Code | Cloudy Code | AI 開發工具 | 使用者確認 |
-| Claude Tag | Cloudy Tag、Cloude Tag、Clouded Tag | AI 專有名詞 | 使用者確認 |
-| ChatGPT | ChairGPT、CHAT GBT、ChagPT、ChatterGPT | AI 產品／品牌 | 使用者確認 |
-| Roth 轉換（Roth Conversion） | RMD convert、do last conversion、conversion（退休帳戶語境） | 美國退休規劃 | 使用者確認；須依 RMD 與退休帳戶前後文判斷 |
-| 管理費 | manager fee | 投資用語 | 使用者確認 |
-| 通知 | notice、notice 到 | 平台操作 | 使用者確認 |
-| 關麥克風 | 關 mine、關 mic | 平台操作 | 使用者確認 |
-| Gambling | Gambering | 英文用語 | 使用者確認 |
-| 生前信託 | Leaving Trust、Living Trust、live in trust | 美國財務／法律 | 使用者確認 |
-| 離婚 | devolce、divorce | 家庭／法律 | 使用者確認 |
-| 共同帳戶 | journal account、joint account | 帳戶 | 使用者確認；台灣正文使用「帳戶」 |
-| 貢獻 | contribute | 一般用語 | 使用者確認 |
-| 景氣循環 | 景區迴圈 | 經濟用語 | 使用者確認；「景氣迴圈」也是可接受同義寫法 |
-| 韓信點兵 | 含信點兵、寒信點兵、寒信典兵、韓慶點盯 | CLEC 用語 | 使用者確認 |
+| James 老师 | James、Jimson 老师 | 人物 | 用户确认 |
+| Lisa Chu | LISA、Lisa、Lisa Chu | 人物 | 用户确认；James 在 Charles Schwab 的 Financial Consultant（理财顾问） |
+| Elon Musk（伊隆马斯克） | 一龙、Elon、Elon Musk、伊隆马斯克 | 人物 | 用户确认 |
+| X 平台 | X、X平台、X 平台、X平台 | 平台 | 用户确认；台湾正文使用「平台」 |
+| x.com/CLEC168 | x.com.CLEC168 | 网址 | 用户确认 |
+| CLEC168 | CLZ 168 | 频道名称 | 用户确认 |
+| CLEC 投资理财 | CFC投资理财 | 频道名称 | 用户确认 |
+| Clubhouse | call house、Call House、cup house、Cup House、Cloudhouse | 平台 | 用户确认 |
+| LINE 群组 | Nine 群组、Nine群组、LINE群组 | 通信平台 | 用户确认 |
+| 小红书 | 小红树 | 平台 | 用户确认 |
+| 纳斯达克 100 | 纳子一百、那指一百、纳指一百 | 指数 | 用户确认 |
+| QQQ | QQ、字母近音 | ETF | 用户确认；只处理完整词，不得改坏 QQQM 等代号 |
+| QQQM | QQM | ETF | 用户确认；只处理完整代号 |
+| QLD | QRD | ETF | 用户确认；只处理完整代号 |
+| QQQI | QQI | ETF | 用户确认；只处理完整代号，不得改动 QQQ |
+| JEPQ | GEPQ | ETF | 用户确认；只处理完整代号 |
+| YTD | Year Today、Year To Day | 投资用语 | 用户确认；指 Year to Date |
+| 513100、513300 | 513100300 | ETF 代号 | 用户确认；依 00575 上下文拆为两个代号 |
+| 半导体类股 | 半导体类骨 | 投资用语 | 用户确认 |
+| 乘丰 | 陈峰 | 专有名词 | 用户确认；具体身分依单集上下文判断 |
+| 美光内存 | 内存 micron、内存 Micron | 半导体公司／内存 | 用户确认；指 Micron Technology |
+| 美光 | micron、Micron | 半导体公司 | 用户确认；指 Micron Technology，产品语境可写「美光内存」 |
+| 价值十亿元的投资讲座 | 价值10元，同志讲座、价值 10 元，同志讲座 | CLEC 用语／活动 | 用户确认；完整词组优先 |
+| Kate | Kate、Cat | 主持人 | Cat 只可在主持人前后文成立时修正；00575 由节目称呼确认 |
+| pCloud | P Cloud、p cloud | 平台 | 来源名称 |
+| Bilibili | bilibili | 平台 | 来源名称 |
+| Facebook | 脸书 | 平台 | 用户确认；指社群平台时修正 |
+| Odysee | OD、ODC、POdyseeast、pOdyseeast、Odyssey 等近音 | 平台 | 用户确认；CLEC Assets 频道：https://odysee.com/@CLEC_Assets:f?view=home |
+| e-mail | email、Email、E-mail | 通信方式 | 用户确认 |
+| support@clec168.com | supportatclece168.com | 联系方式 | 用户确认 |
+| 新人葵花宝典 | 奎花宝典、新人奎花八点、新港人汇化保典 | CLEC 教材 | 用户确认 |
+| Charles Schwab（嘉信理财） | ChargeSWAP、Charles Drop、Charge Shop、Charles Schwab、嘉信理财 | 金融机构 | 用户确认 |
+| HOA（Homeowner's Association，公寓管理委员会） | HOA、Homeowner's Association、公寓管理委员会、管委会 | 房地产／社区管理 | 用户确认 |
+| Property Tax（房地产税） | Propery Tax、Property Tax、房产税、房地产税 | 房地产／税务 | 用户确认 |
+| ambulance（救护车／搭救护车进急诊） | amburance、ambulance、进急诊 | 医疗 | 用户确认；依句型选择名词或动作说法 |
+| routine check（定期检查） | routine 的 check、routine的check、routine check | 医疗／日常用语 | 用户确认 |
+| CT scan（电脑断层扫描） | CT scan、CTscan、CT 扫描 | 医疗检查 | 用户确认 |
+| 君悦五星级饭店 | 军月五星级饭店 | 饭店／地点 | 用户确认 |
+| Anthropic | Enthorpic、Enthropic | AI 公司 | 用户确认 |
+| Claude | Claudi、Cloudy | AI 产品／品牌 | 用户确认 |
+| Claude Code | Cloudy Code | AI 开发工具 | 用户确认 |
+| Claude Tag | Cloudy Tag、Cloude Tag、Clouded Tag | AI 专有名词 | 用户确认 |
+| ChatGPT | ChairGPT、CHAT GBT、ChagPT、ChatterGPT | AI 产品／品牌 | 用户确认 |
+| Roth 转换（Roth Conversion） | RMD convert、do last conversion、conversion（退休帐户语境） | 美国退休规划 | 用户确认；须依 RMD 与退休帐户前后文判断 |
+| 管理费 | manager fee | 投资用语 | 用户确认 |
+| 通知 | notice、notice 到 | 平台操作 | 用户确认 |
+| 关麦克风 | 关 mine、关 mic | 平台操作 | 用户确认 |
+| Gambling | Gambering | 英文用语 | 用户确认 |
+| 生前信托 | Leaving Trust、Living Trust、live in trust | 美国财务／法律 | 用户确认 |
+| 离婚 | devolce、divorce | 家庭／法律 | 用户确认 |
+| 共同帐户 | journal account、joint account | 帐户 | 用户确认；台湾正文使用「帐户」 |
+| 贡献 | contribute | 一般用语 | 用户确认 |
+| 景气循环 | 景区循环 | 经济用语 | 用户确认；「景气循环」也是可接受同义写法 |
+| 韩信点兵 | 含信点兵、寒信点兵、寒信典兵、韩庆点盯 | CLEC 用语 | 用户确认 |
 
-## 只供查證
+## 只供查证
 
-以下詞形不能自動改答案：`Hasabi`、`怕V`。應回到音訊、講義或同集來源核對；未確認前保留原辨識並加 `〔需核對〕`。
+以下词形不能自动改答案：`Hasabi`、`怕V`。应回到音频、讲义或同集来源核对；未确认前保留原辨识并加 `〔需核对〕`。
 
-## 批次替換安全規則
+## 批量替换安全规则
 
-- 只批次使用「使用者確認」或「來源確認」詞形。
-- 完整長詞先於短詞；`QQ`、`QQM`、`OD`、`ODC` 必須使用完整詞界。
-- `amburance` 等需要句意判斷的詞，要先讀完整句子。
-- 批次前後以 SHA-256 確認所有 raw、TXT、SRT、VTT 未改動。
-- 交付前掃描已確認誤辨詞以及 `ï¼`、`æ` 等 UTF-8 亂碼片段。
+- 只批量使用「用户确认」或「来源确认」词形。
+- 完整长词先于短词；`QQ`、`QQM`、`OD`、`ODC` 必须使用完整词界。
+- `amburance` 等需要句意判断的词，要先读完整句子。
+- 批量前后以 SHA-256 确认所有 raw、TXT、SRT、VTT 未改动。
+- 交付前扫描已确认误辨词以及 `ï¼`、`æ` 等 UTF-8 乱码片段。
 
 ## 角色提示
 
-超過三小時的 CLEC 長片通常由 James 老師主講，主持人多為 Kate、偶爾為 Dona。這是查核提示，不是單集姓名證據；無法分辨時只寫「主持人」。
+超过三小时的 CLEC 长片通常由 James 老师主讲，主持人多为 Kate、偶尔为 Dona。这是查核提示，不是单集姓名证据；无法分辨时只写「主持人」。
